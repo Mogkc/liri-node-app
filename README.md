@@ -11,9 +11,9 @@ and supply your own .env file with your own Spotify API keys (including client s
 
 ## Using Liri ##
 Some example commands, with their results:
-![No arguments]()
-![concert-this](images/concert.PNG)
-![movie-this](images/movie.PNG)
-![spotify-this-song](images/spotify.PNG)
-* When using a text document, the commands should comma separated and have no spaces outside the string, i.e.:
-** spotify-this-song,"I Want it That Way"
+* ![No arguments](images/no-args.PNG)
+* ![concert-this](images/concert.PNG)
+* ![movie-this](images/movie.PNG)
+* ![spotify-this-song](images/spotify.PNG)
+#### When using a text document, the commands should comma separated and have no spaces outside the string: ####
+* spotify-this-song,"I Want it That Way"
