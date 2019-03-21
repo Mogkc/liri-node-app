@@ -1,11 +1,11 @@
 require("dotenv").config();
 const fs = require("fs");
-//require("node-spotify-api");
+const Spotify = require("node-spotify-api");
 const keys = require("./keys.js");
 const axios = require("axios");
 const moment = require("moment");
 
-//const spotify = new Spotify(keys.spotify);
+const spotify = new Spotify(keys.spotify);
 
 //These two are changed by do-what-this-says
 let command = process.argv[2];
@@ -30,8 +30,22 @@ function obey() {
             if (terms === "") {
                 terms = "The Sign";
             }
-            //More spotify stuff
-            console.log(terms);
+            terms = terms.split(" ").join("+");
+
+            spotify.search({ type: 'track', query: terms, limit: 1 }, function (err, data) {
+                if (err) {
+                    console.log(err);
+                }
+                const song = data.tracks.items[0];
+                //Song Name
+                console.log("We found " + song.name);
+                //Log the Artist(s)
+                console.log("By: " + song.artists[0].name);
+                //Album
+                console.log("In album: " + song.album.name)
+                //And preview link
+                console.log("Preview on Spotify at:\r\n" + song.preview_url);
+            })
             break;
         case `movie-this`:
             axios.get("https://www.omdbapi.com/?t=" + terms + "&y=&plot=short&apikey=trilogy")
