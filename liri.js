@@ -55,7 +55,7 @@ function obey() {
                         + "\r\n" + movie.Title + "\r\n" + movie.Year + "\r\nIMDB Rating: " + movie.imdbRating
                         + "\r\n" + movie.Ratings[1].Source + ": " + movie.Ratings[1].Value
                         + "\r\nMade if " + movie.Country + " with the language " + movie.Language
-                        + "\r\nPlot:\r\n" + movie.Plot + "\r\n" + movie.Actors);
+                        + "\r\nPlot:\r\n" + movie.Plot + "\r\nActors: " + movie.Actors);
                 });
             break;
         case `do-what-it-says`:
@@ -69,7 +69,8 @@ function obey() {
             });
             break;
         default: console.log("liri.js has four options for input:\r\n'concert-this <nameOfArtist>': Finds a concert\r\n" +
-            "'spotify-this-song <songName>': Plays a song\r\n`movie-this <movieName>': Displays information about a movie\r\n" +
+            "'spotify-this-song <songName>': Displays information about a song\r\n" + 
+            "`movie-this <movieName>': Displays information about a movie\r\n" +
             "`do-what-it-says <textDocumentPath>': Executes the command found in a text document\r\n" +
             "---------------------------");
     }
